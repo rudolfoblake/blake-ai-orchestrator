@@ -40,3 +40,48 @@ An open-source, decoupled portfolio project that showcases my engineering stack 
 
 ## License
 Open-source license — see `LICENSE` at the project root.
+
+---
+
+## PT-BR
+
+Um projeto de portfólio open-source, desacoplado, que demonstra minha stack de engenharia e minha abordagem para construir sistemas com IA. Cada módulo evolui de forma independente e pode rodar sozinho.
+
+### Por que existe
+- Demonstra meu portfólio/CV com código real: padrões de orquestração, APIs limpas, Python tipado, um cliente React simples e observabilidade.
+- Prioriza separação de responsabilidades e arquitetura modular, permitindo trocar componentes sem quebrar o sistema inteiro.
+- Serve como sandbox de aprendizado e experimentação mantendo práticas de produção: serviços Dockerizados, health checks, métricas e docs de API gerados automaticamente.
+
+### Módulos
+- `backend/`: API FastAPI que orquestra provedores de IA; expõe `POST /infer`.
+- `frontend/`: App React leve que chama o backend e renderiza resultados.
+- `database/`: Módulo compartilhado de acesso ao banco (SQLAlchemy) usado pelo backend.
+- `monitoring/`: Serviço FastAPI independente para coletar eventos e métricas Prometheus.
+
+### Quickstart
+- Docker:
+  - `docker compose up --build`
+  - Serviços:
+    - Backend: `http://localhost:8000` (saúde: `/health`, métricas: `/metrics`)
+    - Frontend: `http://localhost:3000`
+    - Monitoring API: `http://localhost:9100` (saúde: `/health`, métricas: `/metrics`)
+    - Prometheus: `http://localhost:9090`
+    - Grafana: `http://localhost:4000`
+- Desenvolvimento local:
+  - Backend: `pip install -r backend/requirements.txt && uvicorn backend.orchestrator.main:app --reload`
+  - Frontend: `cd frontend && npm install && npm start`
+
+### Docs de API
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+- OpenAPI JSON: `http://localhost:8000/openapi.json`
+
+### Documentação do projeto
+- Backend: `backend/README.md`
+- Frontend: `frontend/README.md`
+- Monitoring: `monitoring/README.md`
+- Database: `database/README.md`
+- Changelogs por projeto: `backend/CHANGELOG.md`, `frontend/CHANGELOG.md`
+
+### Licença
+Licença open-source — veja `LICENSE` na raiz do projeto.
