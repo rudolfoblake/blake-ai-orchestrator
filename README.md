@@ -45,6 +45,11 @@ MIT License — see `LICENSE` at the project root.
 - Contributing — see `CONTRIBUTING.md`
 - Code of Conduct — see `CODE_OF_CONDUCT.md`
 
+### Pull Requests & Labels
+- Target branch for PRs: `staging` (required).
+- Use helpful labels like `bug`, `enhancement`, `help wanted`, `good first issue`.
+- Follow the PR template and contribution guide.
+
 ---
 
 ## PT-BR
@@ -93,3 +98,8 @@ Licença MIT — veja `LICENSE` na raiz do projeto.
 ### Comunidade
 - Contribuição — veja `CONTRIBUTING.md`
 - Código de Conduta — veja `CODE_OF_CONDUCT.md`
+
+#### Pull Requests & Labels (PT-BR)
+- Branch alvo dos PRs: `staging` (obrigatório).
+- Utilize labels úteis como `bug`, `enhancement`, `help wanted`, `good first issue`.
+- Siga o template de PR e o guia de contribuição.

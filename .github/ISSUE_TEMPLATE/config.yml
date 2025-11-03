@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contribution Guide (EN/PT-BR)
+    url: https://github.com/rudolfoblake/blake-ai-orchestrator/blob/main/CONTRIBUTING.md
+    about: Please read the contribution guidelines before opening an issue.
+  - name: Code of Conduct (EN/PT-BR)
+    url: https://github.com/rudolfoblake/blake-ai-orchestrator/blob/main/CODE_OF_CONDUCT.md
+    about: Be respectful and follow our Code of Conduct.
