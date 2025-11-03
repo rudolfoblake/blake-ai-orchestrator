@@ -41,6 +41,10 @@ An open-source, decoupled portfolio project that showcases my engineering stack 
 ## License
 MIT License — see `LICENSE` at the project root.
 
+## Community
+- Contributing — see `CONTRIBUTING.md`
+- Code of Conduct — see `CODE_OF_CONDUCT.md`
+
 ---
 
 ## PT-BR
@@ -85,3 +89,7 @@ Um projeto de portfólio open-source, desacoplado, que demonstra minha stack de 
 
 ### Licença
 Licença MIT — veja `LICENSE` na raiz do projeto.
+
+### Comunidade
+- Contribuição — veja `CONTRIBUTING.md`
+- Código de Conduta — veja `CODE_OF_CONDUCT.md`
