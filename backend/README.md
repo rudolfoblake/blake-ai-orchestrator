@@ -2,6 +2,12 @@
 
 FastAPI backend orchestrating multiple AIs (OpenAI, Claude, DeepSeek, Gemini), running parallel calls and aggregating into a final inference.
 
+## See Also
+- Project overview: [README.md](../README.md)
+- Frontend docs: [frontend/README.md](../frontend/README.md)
+- Monitoring docs: [monitoring/README.md](../monitoring/README.md)
+- Database docs: [database/README.md](../database/README.md)
+
 ## Requirements
 - Python 3.11
 - Optional: Redis and PostgreSQL for cache and logs
@@ -74,6 +80,12 @@ curl -X POST http://localhost:8000/infer \
 ## PT-BR
 
 Backend FastAPI que orquestra múltiplas IAs (OpenAI, Claude, DeepSeek, Gemini), realiza chamadas paralelas e combina respostas em uma inferência final.
+
+### Veja também
+- Visão geral do projeto: [README.md](../README.md)
+- Docs do Frontend: [frontend/README.md](../frontend/README.md)
+- Docs de Monitoring: [monitoring/README.md](../monitoring/README.md)
+- Docs de Database: [database/README.md](../database/README.md)
 
 ### Requisitos
 - Python 3.11
