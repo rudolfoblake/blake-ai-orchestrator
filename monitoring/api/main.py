@@ -33,18 +33,18 @@ app.add_middleware(
 # Prometheus metrics
 INFER_EVENTS = Counter(
     "monitor_infer_events_total",
-    "Total de eventos de inferência recebidos",
+    "Total inference events received",
     ["status"],
 )
 
 INFER_DURATION = Histogram(
     "monitor_infer_duration_ms",
-    "Duração reportada das inferências em ms",
+    "Reported inference durations in ms",
 )
 
 CONFIDENCE_GAUGE = Gauge(
     "monitor_infer_last_confidence",
-    "Confiança da última inferência recebida",
+    "Confidence of last received inference",
 )
 
 

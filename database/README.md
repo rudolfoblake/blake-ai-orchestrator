@@ -1,14 +1,33 @@
 # Database
 
-Módulo comum de acesso ao banco (SQLAlchemy) compartilhado pelo backend.
+Shared SQLAlchemy access module used by the backend.
 
-## Arquivos
+## Files
+- `database/db.py`: engine, session, `InferenceLog` model, and best-effort initialization.
+
+## Configuration
+- `DATABASE_URL`: Postgres URL (e.g., `postgresql://user:pass@db:5432/blake_ai`)
+
+## Usage in Backend
+```
+from database.db import get_session, InferenceLog
+```
+
+The backend copies this directory into the Docker image to ensure imports work in production.
+
+---
+
+## PT-BR
+
+Módulo compartilhado de acesso ao banco (SQLAlchemy) usado pelo backend.
+
+### Arquivos
 - `database/db.py`: engine, sessão, modelo `InferenceLog` e inicialização best-effort.
 
-## Configuração
+### Configuração
 - `DATABASE_URL`: URL do Postgres (ex.: `postgresql://user:pass@db:5432/blake_ai`)
 
-## Uso no Backend
+### Uso no Backend
 ```
 from database.db import get_session, InferenceLog
 ```

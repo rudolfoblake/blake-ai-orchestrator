@@ -59,7 +59,7 @@ async def infer(prompt: dict):
         # Swallow DB errors to keep endpoint healthy
         pass
 
-    # Envia evento de monitoramento (best-effort, não bloqueante)
+    # Send monitoring event (best-effort, non-blocking)
     try:
         payload = {
             "prompt": p,
