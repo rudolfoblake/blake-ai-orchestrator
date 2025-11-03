@@ -39,7 +39,7 @@ An open-source, decoupled portfolio project that showcases my engineering stack 
 - Per-project changelogs: `backend/CHANGELOG.md`, `frontend/CHANGELOG.md`
 
 ## License
-Open-source license — see `LICENSE` at the project root.
+MIT License — see `LICENSE` at the project root.
 
 ---
 
@@ -84,4 +84,4 @@ Um projeto de portfólio open-source, desacoplado, que demonstra minha stack de 
 - Changelogs por projeto: `backend/CHANGELOG.md`, `frontend/CHANGELOG.md`
 
 ### Licença
-Licença open-source — veja `LICENSE` na raiz do projeto.
+Licença MIT — veja `LICENSE` na raiz do projeto.
