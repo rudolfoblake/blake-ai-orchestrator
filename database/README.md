@@ -2,6 +2,12 @@
 
 Shared SQLAlchemy access module used by the backend.
 
+## See Also
+- Project overview: [README.md](../README.md)
+- Backend docs: [backend/README.md](../backend/README.md)
+- Frontend docs: [frontend/README.md](../frontend/README.md)
+- Monitoring docs: [monitoring/README.md](../monitoring/README.md)
+
 ## Files
 - `database/db.py`: engine, session, `InferenceLog` model, and best-effort initialization.
 
@@ -20,6 +26,12 @@ The backend copies this directory into the Docker image to ensure imports work i
 ## PT-BR
 
 Módulo compartilhado de acesso ao banco (SQLAlchemy) usado pelo backend.
+
+### Veja também
+- Visão geral do projeto: [README.md](../README.md)
+- Docs do Backend: [backend/README.md](../backend/README.md)
+- Docs do Frontend: [frontend/README.md](../frontend/README.md)
+- Docs de Monitoring: [monitoring/README.md](../monitoring/README.md)
 
 ### Arquivos
 - `database/db.py`: engine, sessão, modelo `InferenceLog` e inicialização best-effort.

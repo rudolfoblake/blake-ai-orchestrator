@@ -1,5 +1,11 @@
 # Blake AI Frontend
 
+## See Also
+- Project overview: [README.md](../README.md)
+- Backend docs: [backend/README.md](../backend/README.md)
+- Monitoring docs: [monitoring/README.md](../monitoring/README.md)
+- Database docs: [database/README.md](../database/README.md)
+
 ## Setup
 
 - Install dependencies:
@@ -26,6 +32,12 @@
 ---
 
 ## PT-BR
+
+### Veja também
+- Visão geral do projeto: [README.md](../README.md)
+- Docs do Backend: [backend/README.md](../backend/README.md)
+- Docs de Monitoring: [monitoring/README.md](../monitoring/README.md)
+- Docs de Database: [database/README.md](../database/README.md)
 
 ### Setup
 - Instale dependências: `npm install`
