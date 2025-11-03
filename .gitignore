@@ -1,0 +1,28 @@
+# Node
+frontend/node_modules/
+frontend/build/
+frontend/.cache/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+env/
+.coverage
+
+# Monitoring logs
+monitoring/logs/
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+
+# Environment files
+.env
+
+# Docker
+*.local
+*.tmp
