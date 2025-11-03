@@ -32,18 +32,18 @@ An open-source, decoupled portfolio project that showcases my engineering stack 
 - OpenAPI JSON: `http://localhost:8000/openapi.json`
 
 ## Project Documentation
-- Backend: `backend/README.md`
-- Frontend: `frontend/README.md`
-- Monitoring: `monitoring/README.md`
-- Database: `database/README.md`
-- Per-project changelogs: `backend/CHANGELOG.md`, `frontend/CHANGELOG.md`
+- Backend: [backend/README.md](backend/README.md)
+- Frontend: [frontend/README.md](frontend/README.md)
+- Monitoring: [monitoring/README.md](monitoring/README.md)
+- Database: [database/README.md](database/README.md)
+- Changelogs: [backend/CHANGELOG.md](backend/CHANGELOG.md), [frontend/CHANGELOG.md](frontend/CHANGELOG.md)
 
 ## License
-MIT License — see `LICENSE` at the project root.
+MIT License — see [LICENSE](LICENSE) at the project root.
 
 ## Community
-- Contributing — see `CONTRIBUTING.md`
-- Code of Conduct — see `CODE_OF_CONDUCT.md`
+- Contributing — see [CONTRIBUTING.md](CONTRIBUTING.md)
+- Code of Conduct — see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ### Pull Requests & Labels
 - Target branch for PRs: `staging` (required).
@@ -86,18 +86,18 @@ Um projeto de portfólio open-source, desacoplado, que demonstra minha stack de 
 - OpenAPI JSON: `http://localhost:8000/openapi.json`
 
 ### Documentação do projeto
-- Backend: `backend/README.md`
-- Frontend: `frontend/README.md`
-- Monitoring: `monitoring/README.md`
-- Database: `database/README.md`
-- Changelogs por projeto: `backend/CHANGELOG.md`, `frontend/CHANGELOG.md`
+- Backend: [backend/README.md](backend/README.md)
+- Frontend: [frontend/README.md](frontend/README.md)
+- Monitoring: [monitoring/README.md](monitoring/README.md)
+- Database: [database/README.md](database/README.md)
+- Changelogs: [backend/CHANGELOG.md](backend/CHANGELOG.md), [frontend/CHANGELOG.md](frontend/CHANGELOG.md)
 
 ### Licença
-Licença MIT — veja `LICENSE` na raiz do projeto.
+Licença MIT — veja [LICENSE](LICENSE) na raiz do projeto.
 
 ### Comunidade
-- Contribuição — veja `CONTRIBUTING.md`
-- Código de Conduta — veja `CODE_OF_CONDUCT.md`
+- Contribuição — veja [CONTRIBUTING.md](CONTRIBUTING.md)
+- Código de Conduta — veja [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 #### Pull Requests & Labels (PT-BR)
 - Branch alvo dos PRs: `staging` (obrigatório).
