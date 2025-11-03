@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ "staging" ]
+  push:
+    branches: [ "staging" ]
+
+jobs:
+  backend-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install backend requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+      - name: Syntax check backend
+        run: |
+          python -m compileall -q backend
+
+  frontend-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install frontend deps
+        working-directory: frontend
+        run: npm ci || npm install
+      - name: Build frontend (if present)
+        working-directory: frontend
+        run: npm run build --if-present
