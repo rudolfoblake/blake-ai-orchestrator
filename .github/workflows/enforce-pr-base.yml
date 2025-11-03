@@ -1,0 +1,21 @@
+name: Enforce PR Base Branch
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  enforce-base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR base is staging
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const base = pr?.base?.ref;
+            if (base !== 'staging') {
+              core.setFailed(`PR base must be 'staging'. Current base: '${base}'.`);
+            } else {
+              core.info('PR base is staging ✅');
+            }
