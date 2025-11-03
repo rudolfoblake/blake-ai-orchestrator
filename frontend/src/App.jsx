@@ -14,7 +14,7 @@ export default function App() {
       const result = await infer(prompt);
       setResponse(result.final_answer);
     } catch (e) {
-      setError(e.message || "Erro ao consultar API");
+      setError(e.message || "Error calling API");
     } finally {
       setLoading(false);
     }
@@ -25,10 +25,10 @@ export default function App() {
       <h1>Blake AI Orchestrator</h1>
       <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} />
       <button onClick={handleSubmit} disabled={loading || !prompt.trim()}>
-        {loading ? "Enviando..." : "Enviar"}
+        {loading ? "Sending..." : "Send"}
       </button>
       {error && <div style={{ color: "red" }}>{error}</div>}
-      <p><b>Resposta:</b> {response}</p>
+      <p><b>Response:</b> {response}</p>
     </div>
   );
 }
