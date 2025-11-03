@@ -22,6 +22,7 @@ monitoring/logs/
 
 # Environment files
 .env
+!.env
 
 # Docker
 *.local
