@@ -15,6 +15,7 @@ An open-source, decoupled portfolio project that showcases my engineering stack 
 
 ## Quickstart
 - Docker:
+  - Copy `.env.example` to `.env` and fill secrets
   - `docker compose up --build`
   - Services:
     - Backend: `http://localhost:8000` (health: `/health`, metrics: `/metrics`)
@@ -23,6 +24,7 @@ An open-source, decoupled portfolio project that showcases my engineering stack 
     - Prometheus: `http://localhost:9090`
     - Grafana: `http://localhost:4000`
 - Local development:
+  - Optional: copy `.env.example` to `.env` and set local variables
   - Backend: `pip install -r backend/requirements.txt && uvicorn backend.orchestrator.main:app --reload`
   - Frontend: `cd frontend && npm install && npm start`
 
@@ -69,6 +71,7 @@ Um projeto de portfólio open-source, desacoplado, que demonstra minha stack de 
 
 ### Quickstart
 - Docker:
+  - Copie `.env.example` para `.env` e preencha segredos
   - `docker compose up --build`
   - Serviços:
     - Backend: `http://localhost:8000` (saúde: `/health`, métricas: `/metrics`)
@@ -77,6 +80,7 @@ Um projeto de portfólio open-source, desacoplado, que demonstra minha stack de 
     - Prometheus: `http://localhost:9090`
     - Grafana: `http://localhost:4000`
 - Desenvolvimento local:
+  - Opcional: copie `.env.example` para `.env` e ajuste variáveis locais
   - Backend: `pip install -r backend/requirements.txt && uvicorn backend.orchestrator.main:app --reload`
   - Frontend: `cd frontend && npm install && npm start`
 

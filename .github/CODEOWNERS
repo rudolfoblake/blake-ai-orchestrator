@@ -1,0 +1,7 @@
+* @rudolfoblake
+
+# Explicit module ownership (fallbacks to repo owner if unchanged)
+/backend/ @rudolfoblake
+/frontend/ @rudolfoblake
+/database/ @rudolfoblake
+/monitoring/ @rudolfoblake

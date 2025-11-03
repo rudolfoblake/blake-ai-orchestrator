@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [ "staging" ]
   push:
-    branches: [ "staging" ]
+    branches: [ "staging", "main" ]
 
 jobs:
   backend-syntax:
