@@ -21,14 +21,35 @@ export default function App() {
   };
 
   return (
-    <div>
-      <h1>Blake AI Orchestrator</h1>
-      <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} />
-      <button onClick={handleSubmit} disabled={loading || !prompt.trim()}>
-        {loading ? "Sending..." : "Send"}
-      </button>
-      {error && <div style={{ color: "red" }}>{error}</div>}
-      <p><b>Response:</b> {response}</p>
+    <div className="container">
+      <section className="hero">
+        <h1 className="title">Blake AI Orchestrator</h1>
+        <p className="subtitle">Uma experiência fluida para explorar respostas de IA.</p>
+      </section>
+
+      <section className="panel">
+        <label htmlFor="prompt" style={{ display: "block", marginBottom: 8, color: "var(--muted)" }}>
+          Digite seu prompt
+        </label>
+        <textarea
+          id="prompt"
+          className="textarea"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="Ex.: Explique o conceito de orquestração de modelos em IA..."
+        />
+        <div className="actions">
+          <button className="button" onClick={handleSubmit} disabled={loading || !prompt.trim()}>
+            {loading ? "Enviando…" : "Enviar"}
+          </button>
+          {error && <span className="error">{error}</span>}
+        </div>
+
+        <div className="response">
+          <strong>Resposta:</strong>
+          <div style={{ marginTop: 8 }}>{response || "—"}</div>
+        </div>
+      </section>
     </div>
   );
 }

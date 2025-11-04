@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [opened, edited, synchronize]
 
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   enforce-base:
     runs-on: ubuntu-latest

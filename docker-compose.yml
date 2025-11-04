@@ -27,9 +27,9 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: blake_ai
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: ${POSTGRES_DB:-blake_ai}
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pass}
     volumes:
       - db_data:/var/lib/postgresql/data
 

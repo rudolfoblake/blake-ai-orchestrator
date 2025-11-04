@@ -35,3 +35,15 @@ Todas as mudanças relevantes ao serviço de orquestração (FastAPI) estão lis
 - Estrutura básica do FastAPI, rota `/health`
 - Esqueleto de `/infer` com resposta mock
 - Configuração inicial de Dockerfile
+## 4.1 – Security hardening & encrypted logs (2025-11-04)
+- Stricter CORS, TrustedHost and security headers.
+- Optional HTTPS redirect via `FORCE_HTTPS`.
+- Redaction by default for prompts/answers in DB and monitoring.
+- Encrypted DB logs via `LOG_ENCRYPTION_KEY` (Fernet).
+- Added `cryptography` dependency.
+### 4.1 – Endurecimento de segurança e logs criptografados (2025-11-04)
+- CORS mais restrito, TrustedHost e cabeçalhos de segurança.
+- Redirecionamento HTTPS opcional via `FORCE_HTTPS`.
+- Redação por padrão de prompts/respostas no DB e monitoring.
+- Criptografia de logs no banco via `LOG_ENCRYPTION_KEY` (Fernet).
+- Dependência `cryptography` adicionada.

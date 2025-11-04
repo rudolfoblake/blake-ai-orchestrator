@@ -4,13 +4,18 @@ on:
   pull_request:
     branches: [ "staging" ]
   push:
-    branches: [ "staging", "main" ]
+    branches: [ "staging" ]
+
+permissions:
+  contents: read
 
 jobs:
   backend-syntax:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -27,6 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

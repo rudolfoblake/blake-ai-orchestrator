@@ -21,12 +21,16 @@ class InferenceEvent(BaseModel):
 
 app = FastAPI(title="Monitoring API", version="1.0.0")
 
+# Restrict CORS to configured origins
+monitor_origins_env = os.environ.get("MONITOR_ALLOWED_ORIGINS",
+                                    "http://localhost:8000,http://localhost:3000")
+monitor_origins = [o.strip() for o in monitor_origins_env.split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=monitor_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 
@@ -75,10 +79,14 @@ async def collect_inference(event: InferenceEvent, request: Request):
         except Exception:
             pass
 
-    # Append JSON line to log file
+    # Append JSON line to log file (with optional redaction)
     try:
         import json
         payload: Dict[str, Any] = event.dict()
+        if os.environ.get("MONITOR_REDACT", "true").lower() in ("1", "true", "yes"):
+            payload["prompt"] = "[redacted]"
+            payload["final_answer"] = "[redacted]"
+            payload["sources"] = {}
         payload["received_at"] = received_at
         payload["client_ip"] = request.client.host if request.client else None
         with open(LOG_PATH, "a", encoding="utf-8") as f:
