@@ -1,4 +1,4 @@
-# ⚪ **Blake AI Orchestrator – Backend**
+# ⚪ **Blake AI Orchestrator – Backend API**
 
 FastAPI backend orchestrating multiple AIs (**OpenAI**, **Claude**, **DeepSeek**, **Gemini**), running parallel calls and aggregating into a final inference.
 
