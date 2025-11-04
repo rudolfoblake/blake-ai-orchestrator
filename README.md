@@ -1,109 +1,75 @@
-# Blake AI Orchestrator
+# ⚪ **Blake AI Orchestrator**
 
-An open-source, decoupled portfolio project that showcases my engineering stack and approach to building AI-enabled systems. Each module evolves independently and can run on its own.
-
-## Why This Exists
-- Demonstrates my portfolio/CV through real code: orchestration patterns, clean APIs, typed Python, a small React client, and observability.
-- Prioritizes separation of concerns and modular architecture, so components can be swapped or improved without breaking the whole system.
-- Serves as a learning and experimentation sandbox while remaining production-friendly: Dockerized services, health checks, metrics, and auto-generated API docs.
-
-## Modules
-- `backend/`: FastAPI API orchestrating AI providers; exposes `POST /infer`.
-- `frontend/`: Lightweight React app that calls the backend and renders results.
-- `database/`: Shared SQLAlchemy access module used by the backend.
-- `monitoring/`: Independent FastAPI service for event collection and Prometheus metrics.
-
-## Quickstart
-- Docker:
-  - Copy `.env.example` to `.env` and fill secrets
-  - `docker compose up --build`
-  - Services:
-    - Backend: `http://localhost:8000` (health: `/health`, metrics: `/metrics`)
-    - Frontend: `http://localhost:3000`
-    - Monitoring API: `http://localhost:9100` (health: `/health`, metrics: `/metrics`)
-    - Prometheus: `http://localhost:9090`
-    - Grafana: `http://localhost:4000`
-- Local development:
-  - Optional: copy `.env.example` to `.env` and set local variables
-  - Backend: `pip install -r backend/requirements.txt && uvicorn backend.orchestrator.main:app --reload`
-  - Frontend: `cd frontend && npm install && npm start`
-
-## API Docs
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-- OpenAPI JSON: `http://localhost:8000/openapi.json`
-
-## Project Documentation
-- Backend: [backend/README.md](backend/README.md)
-- Frontend: [frontend/README.md](frontend/README.md)
-- Monitoring: [monitoring/README.md](monitoring/README.md)
-- Database: [database/README.md](database/README.md)
-- Changelogs: [backend/CHANGELOG.md](backend/CHANGELOG.md), [frontend/CHANGELOG.md](frontend/CHANGELOG.md)
-
-## License
-MIT License — see [LICENSE](LICENSE) at the project root.
-
-## Community
-- Contributing — see [CONTRIBUTING.md](CONTRIBUTING.md)
-- Code of Conduct — see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-
-### Pull Requests & Labels
-- Target branch for PRs: `staging` (required).
-- Use helpful labels like `bug`, `enhancement`, `help wanted`, `good first issue`.
-- Follow the PR template and contribution guide.
+Open-source, modular portfolio showcasing my engineering stack and approach to AI-enabled systems.  
+Each module is **fully decoupled**, evolving on its own.
 
 ---
 
-## PT-BR
+## ✳️ Why It Exists
+- A living portfolio: **real code, real orchestration**, not slides.  
+- Modular by design: swap or improve components without breaking the rest.  
+- Clean, typed **Python + FastAPI**, **React**, **observability**, **Docker**, and **metrics**.  
+- Built for clarity, scalability, and calm engineering.
 
-Um projeto de portfólio open-source, desacoplado, que demonstra minha stack de engenharia e minha abordagem para construir sistemas com IA. Cada módulo evolui de forma independente e pode rodar sozinho.
+---
 
-### Por que existe
-- Demonstra meu portfólio/CV com código real: padrões de orquestração, APIs limpas, Python tipado, um cliente React simples e observabilidade.
-- Prioriza separação de responsabilidades e arquitetura modular, permitindo trocar componentes sem quebrar o sistema inteiro.
-- Serve como sandbox de aprendizado e experimentação mantendo práticas de produção: serviços Dockerizados, health checks, métricas e docs de API gerados automaticamente.
+## ⚙️ Modules
+```
+backend/     → FastAPI orchestrator (POST /infer)
+frontend/    → Lightweight React client
+database/    → Shared SQLAlchemy layer
+monitoring/  → Metrics & Prometheus collector
+```
 
-### Módulos
-- `backend/`: API FastAPI que orquestra provedores de IA; expõe `POST /infer`.
-- `frontend/`: App React leve que chama o backend e renderiza resultados.
-- `database/`: Módulo compartilhado de acesso ao banco (SQLAlchemy) usado pelo backend.
-- `monitoring/`: Serviço FastAPI independente para coletar eventos e métricas Prometheus.
+---
 
-### Quickstart
-- Docker:
-  - Copie `.env.example` para `.env` e preencha segredos
-  - `docker compose up --build`
-  - Serviços:
-    - Backend: `http://localhost:8000` (saúde: `/health`, métricas: `/metrics`)
-    - Frontend: `http://localhost:3000`
-    - Monitoring API: `http://localhost:9100` (saúde: `/health`, métricas: `/metrics`)
-    - Prometheus: `http://localhost:9090`
-    - Grafana: `http://localhost:4000`
-- Desenvolvimento local:
-  - Opcional: copie `.env.example` para `.env` e ajuste variáveis locais
-  - Backend: `pip install -r backend/requirements.txt && uvicorn backend.orchestrator.main:app --reload`
-  - Frontend: `cd frontend && npm install && npm start`
+## 🚀 Quickstart
 
-### Docs de API
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-- OpenAPI JSON: `http://localhost:8000/openapi.json`
+### Docker
+```bash
+cp .env.example .env
+docker compose up --build
+```
 
-### Documentação do projeto
-- Backend: [backend/README.md](backend/README.md)
-- Frontend: [frontend/README.md](frontend/README.md)
-- Monitoring: [monitoring/README.md](monitoring/README.md)
-- Database: [database/README.md](database/README.md)
-- Changelogs: [backend/CHANGELOG.md](backend/CHANGELOG.md), [frontend/CHANGELOG.md](frontend/CHANGELOG.md)
+**Services**
+- Backend → [http://localhost:8000](http://localhost:8000)  
+- Frontend → [http://localhost:3000](http://localhost:3000)  
+- Monitoring → [http://localhost:9100](http://localhost:9100)  
+- Prometheus → [http://localhost:9090](http://localhost:9090)  
+- Grafana → [http://localhost:4000](http://localhost:4000)
 
-### Licença
-Licença MIT — veja [LICENSE](LICENSE) na raiz do projeto.
+### Local Dev
+```bash
+pip install -r backend/requirements.txt
+uvicorn backend.orchestrator.main:app --reload
 
-### Comunidade
-- Contribuição — veja [CONTRIBUTING.md](CONTRIBUTING.md)
-- Código de Conduta — veja [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+cd frontend && npm install && npm start
+```
 
-#### Pull Requests & Labels (PT-BR)
-- Branch alvo dos PRs: `staging` (obrigatório).
-- Utilize labels úteis como `bug`, `enhancement`, `help wanted`, `good first issue`.
-- Siga o template de PR e o guia de contribuição.
+---
+
+## 📘 API Docs
+- Swagger → [http://localhost:8000/docs](http://localhost:8000/docs)  
+- ReDoc → [http://localhost:8000/redoc](http://localhost:8000/redoc)  
+- OpenAPI → [http://localhost:8000/openapi.json](http://localhost:8000/openapi.json)
+
+---
+
+## 🧩 Documentation
+- [backend/README.md](backend/README.md)  
+- [frontend/README.md](frontend/README.md)  
+- [monitoring/README.md](monitoring/README.md)  
+- [database/README.md](database/README.md)  
+- [backend/CHANGELOG.md](backend/CHANGELOG.md), [frontend/CHANGELOG.md](frontend/CHANGELOG.md)
+
+---
+
+## 🪪 License
+**MIT License** — see [LICENSE](LICENSE)
+
+---
+
+## 🤝 Contribute
+- Branch target: `staging`  
+- Use labels: `bug`, `enhancement`, `help wanted`, `good first issue`  
+- Follow PR template & code of conduct  
