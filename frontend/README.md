@@ -1,4 +1,4 @@
-# ⚪ **Blake AI Frontend**
+# ⚪ **Blake AI Orchestrator Frontend**
 
 ---
 
