@@ -20,3 +20,16 @@ def send_event(payload: dict):
         pass
     except Exception:
         pass
+
+
+def send_provider_event(payload: dict):
+    """Best-effort POST de métricas por provedor para a Monitoring API."""
+    base = os.getenv("MONITORING_URL", "http://localhost:9100")
+    url = base.rstrip("/") + "/collect/provider"
+    data = json.dumps(payload).encode("utf-8")
+    req = request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    try:
+        with request.urlopen(req, timeout=5) as resp:
+            resp.read()
+    except Exception:
+        pass

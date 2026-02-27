@@ -17,7 +17,7 @@ services:
   monitoring-api:
     build:
       context: ..
-      dockerfile: backend/services/monitoring-api/Dockerfile
+      dockerfile: monitoring/Dockerfile
     ports:
       - "9100:9100"
 

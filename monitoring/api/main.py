@@ -19,6 +19,13 @@ class InferenceEvent(BaseModel):
     error: Optional[str] = None
 
 
+class ProviderEvent(BaseModel):
+    provider: str
+    status: str  # ok | error | skipped
+    duration_ms: Optional[float] = None
+    error: Optional[str] = None
+
+
 app = FastAPI(title="Monitoring API", version="1.0.0")
 
 # Restrict CORS to configured origins
@@ -51,6 +58,18 @@ CONFIDENCE_GAUGE = Gauge(
     "Confidence of last received inference",
 )
 
+# Per-provider metrics
+PROVIDER_EVENTS = Counter(
+    "monitor_provider_events_total",
+    "Total provider call events",
+    ["provider", "status"],
+)
+
+PROVIDER_DURATION = Histogram(
+    "monitor_provider_duration_ms",
+    "Provider call durations in ms",
+    ["provider"],
+)
 
 LOG_PATH = os.environ.get("MONITOR_LOG_PATH", os.path.join("monitoring", "logs", "events.log"))
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
@@ -96,6 +115,22 @@ async def collect_inference(event: InferenceEvent, request: Request):
         pass
 
     return {"status": status}
+
+
+@app.post("/collect/provider")
+async def collect_provider(event: ProviderEvent):
+    status = event.status
+    provider = event.provider
+    try:
+        PROVIDER_EVENTS.labels(provider=provider, status=status).inc()
+    except Exception:
+        pass
+    if event.duration_ms is not None:
+        try:
+            PROVIDER_DURATION.labels(provider=provider).observe(float(event.duration_ms))
+        except Exception:
+            pass
+    return {"status": "ok"}
 
 
 @app.get("/metrics")
