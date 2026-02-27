@@ -1,119 +1,118 @@
-**ENGLISH VERSION — BLAKE LABS CODE OF CONDUCT**
+# 🐺 **BLAKE LABS CODE OF CONDUCT**
+### "In the silence of the code, integrity howls."
 
 ---
 
-# 🧠 Code of Conduct — Blake Labs
+## 🕶️ 1. Principle
 
-## 1. Principle
+Blake Labs lives by three forces: **Technology. Art. Integrity.**  
+Every commit leaves a trace. Make it worthy.
 
-This project operates under the Blake Labs philosophy: Technology, Art & Integrity.
-We stand for creative freedom, ethical engineering, and zero tolerance for toxicity.
+We don’t chase trends — we build legacies.  
+A clean environment, both social and technical, is sacred ground.
 
-A clean environment — technically and socially — is the foundation of great work.
-Respect is not optional; it’s protocol.
+**Respect is not optional. It’s protocol.**
 
 ---
 
-## 2. Commitment
+## ⚔️ 2. Commitment
 
-We are committed to maintaining a collaborative, respectful, and secure space.
-No need for everyone to think the same, but everyone must act with integrity.
+We operate like a pack: different minds, one mission.  
+Integrity is the alpha.
 
-Not tolerated:
-
-- Harassment, discrimination, personal attacks, or hate speech.
-- Exposure of private data, internal credentials, or sensitive information.
+**Not tolerated:**
+- Harassment, discrimination, or hate speech.  
+- Exposure of private data, credentials, or internal info.  
 - Flooding, spam, or sabotage in issues, PRs, or discussions.
 
-Valued behaviors:
-
-- Direct, honest, and constructive communication.
-- Technical precision and ethical responsibility.
-- Calm logic over ego or drama.
-
----
-
-## 3. Scope
-
-This Code applies to all Blake Labs environments — repositories, issues, PRs, documentation, and any digital or real-world collaboration under the brand.
+**Valued behaviors:**
+- Calm over chaos. Logic over ego.  
+- Precision, discipline, and loyalty to truth.  
+- Speak directly. Build quietly. Deliver completely.
 
 ---
 
-## 4. Enforcement
+## 🌒 3. Scope
 
-If you witness a violation or unsafe behavior:
-
-1. Open an issue labeled `conduct`, or
-2. Contact the maintainer directly via GitHub (`@rudolfoblake`) or email `blakelabx@gmail.com`.
-
-Reports will be handled promptly, confidentially, and fairly.
-Actions may include warnings, restricted access, or removal from the project.
+This code governs every corner of **Blake Labs** —  
+from Git commits to digital presence, from conversation to creation.  
+If you wear the mark of the wolf, you represent the code.
 
 ---
 
-## 5. Attribution
+## 🧩 4. Enforcement
 
-Based on the Contributor Covenant v2.1, adapted to the Blake Labs ecosystem.
-Original text: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
+See something off? Act.
 
----
+1. Open an issue labeled `conduct`, or  
+2. Contact the maintainer directly → [@rudolfoblake](https://github.com/rudolfoblake)  
+   📧 **blakelabx@gmail.com**
 
----
-
-**VERSÃO EM PORTUGUÊS — CÓDIGO DE CONDUTA BLAKE LABS**
-
----
-
-# 🧠 Código de Conduta — Blake Labs
-
-## 1. Princípio
-
-Este projeto segue a filosofia da Blake Labs: Tecnologia, Arte e Integridade.
-Defendemos liberdade criativa, engenharia ética e tolerância zero à toxicidade.
-
-Ambiente limpo — técnica e socialmente — é base de qualquer grande trabalho.
-Respeito não é opção; é protocolo.
+Reports are handled fast, confidentially, and decisively.  
+Sanctions may include warnings, access limits, or full removal from the pack.
 
 ---
 
-## 2. Compromisso
+## 🔗 5. Attribution
 
-Mantemos um espaço colaborativo, respeitoso e seguro.
-Ninguém precisa pensar igual, mas todos devem agir com integridade.
+Based on **Contributor Covenant v2.1**, re-engineered under the Blake Labs ethos.  
+Original reference → [Contributor Covenant v2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 
-Comportamentos não tolerados:
+---
 
-- Assédio, discriminação, ataques pessoais ou discurso de ódio.
-- Exposição de dados privados, credenciais internas ou informações sensíveis.
+# 🇧🇷 **CÓDIGO DE CONDUTA — BLAKE LABS**
+### “Na escuridão do sistema, o lobo protege o que é justo.”
+
+---
+
+## 🕶️ 1. Princípio
+
+A Blake Labs se move sob três forças: **Tecnologia. Arte. Integridade.**  
+Cada commit é uma assinatura — e todo código deixa rastros.  
+Mantenha o ambiente limpo, técnico e humano.
+
+**Respeito é protocolo.**
+
+---
+
+## ⚔️ 2. Compromisso
+
+Agimos como uma matilha: diferentes, mas alinhados.  
+Integridade é o alfa.
+
+**Comportamentos não tolerados:**
+- Assédio, discriminação ou discurso de ódio.  
+- Exposição de dados, credenciais ou informações internas.  
 - Flood, spam ou sabotagem em issues, PRs ou discussões.
 
-Comportamentos valorizados:
-
-- Comunicação direta, honesta e construtiva.
-- Precisão técnica e responsabilidade ética.
-- Lógica calma acima de ego ou drama.
-
----
-
-## 3. Escopo
-
-Aplica-se a todos os ambientes Blake Labs — repositórios, issues, PRs, documentação e qualquer forma de colaboração digital ou presencial ligada à marca.
+**Comportamentos valorizados:**
+- Serenidade sobre caos. Lógica sobre ego.  
+- Comunicação direta, respeito e responsabilidade técnica.  
+- Falar pouco. Entregar muito.
 
 ---
 
-## 4. Execução
+## 🌒 3. Escopo
 
-Se observar violação ou comportamento inadequado:
-
-1. Abra uma issue com o rótulo `conduct`, ou
-2. Contate o mantenedor diretamente pelo GitHub (`@rudolfoblake`) ou e-mail `blakelabx@gmail.com`.
-
-Relatos serão tratados com rapidez, confidencialidade e justiça.
-Medidas possíveis incluem aviso formal, restrição de acesso ou exclusão do projeto.
+Aplica-se a todos os espaços da **Blake Labs** —  
+repositórios, issues, PRs, comunicações e qualquer colaboração ligada à marca.
 
 ---
 
-## 5. Atribuição
+## 🧩 4. Execução
 
-Baseado no Contributor Covenant v2.1, adaptado para o ecossistema Blake Labs.
-Texto original: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
+Se observar uma violação:
+
+1. Abra uma issue com o rótulo `conduct`, ou  
+2. Contate o mantenedor diretamente → [@rudolfoblake](https://github.com/rudolfoblake)  
+   📧 **blakelabx@gmail.com**
+
+Relatos são tratados com sigilo, rapidez e firmeza.  
+Medidas possíveis incluem advertência, restrição ou exclusão definitiva.
+
+---
+
+## 🔗 5. Atribuição
+
+Baseado no **Contributor Covenant v2.1**, reformulado sob o código da Blake Labs.  
+Referência → [Contributor Covenant v2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
