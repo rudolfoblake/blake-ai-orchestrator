@@ -2,10 +2,10 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY monitoring/requirements.txt /app/requirements.txt
+COPY services/monitoring/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-COPY monitoring/api /app/api
+COPY services/monitoring/api /app/api
 
 ENV PORT=9100
 EXPOSE 9100
