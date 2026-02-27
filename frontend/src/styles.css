@@ -1,0 +1,93 @@
+:root {
+  --bg: #0b0b0c;
+  --fg: #e6e6e7;
+  --muted: #9b9ba0;
+  --accent: #4fa2ff;
+  --accent-2: #7c5cff;
+  --border: rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg);
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(79,162,255,0.15), transparent 60%),
+              radial-gradient(1200px 600px at 80% 10%, rgba(124,92,255,0.12), transparent 60%),
+              var(--bg);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.hero {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+
+.panel {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.02);
+  color: var(--fg);
+  outline: none;
+  font-size: 16px;
+}
+.textarea:focus {
+  border-color: rgba(79,162,255,0.45);
+  box-shadow: 0 0 0 3px rgba(79,162,255,0.2);
+}
+
+.actions { display: flex; gap: 12px; align-items: center; margin-top: 14px; }
+
+.button {
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.error { color: #ff6b6b; font-weight: 600; }
+
+.response {
+  margin-top: 20px;
+  border-top: 1px dashed var(--border);
+  padding-top: 16px;
+  white-space: pre-wrap;
+}
