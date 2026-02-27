@@ -9,7 +9,8 @@ COPY backend/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY backend /app
-COPY database /app/database
+# Shared modules relocated under backend/shared; keep import path as package within /app/backend
+COPY backend/shared/database /app/backend/shared/database
 
 EXPOSE 8000
 
