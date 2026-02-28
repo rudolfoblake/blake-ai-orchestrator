@@ -50,9 +50,7 @@
 
 ### 🔗 Veja Também
 - [Visão geral do projeto](../README.md)
-- [Docs do Backend](../backend/README.md)
-- [Docs de Monitoring](../monitoring/README.md)
-- [Docs de Database](../database/README.md)
+- [Docs do Orchestrator](../orchestrator/README.md)
 
 ---
 
