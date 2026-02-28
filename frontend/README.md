@@ -4,9 +4,7 @@
 
 ## 🔗 See Also
 - [Project overview](../README.md)
-- [Backend docs](../backend/README.md)
-- [Monitoring docs](../monitoring/README.md)
-- [Database docs](../database/README.md)
+- [Orchestrator docs](../orchestrator/README.md)
 
 ---
 

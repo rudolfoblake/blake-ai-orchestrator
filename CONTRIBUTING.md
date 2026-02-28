@@ -25,15 +25,12 @@ Fork the repository and create a descriptive branch:
 
 Set up your local environment:
 
-- Backend → `python -m pip install -r backend/requirements.txt`  
-- Monitoring → `python -m pip install -r monitoring/requirements.txt`  
-- Frontend → `npm install` (Node 18+)  
-- Database → see `database/README.md` for configuration and migrations  
+- Orchestrator → `cd orchestrator && python -m pip install -r requirements.txt`  
+- Frontend → `cd frontend && npm install` (Node 18+)
 
 Run locally:
 
-- Backend → `python -m uvicorn backend.orchestrator.main:app --port 8000`  
-- Monitoring → `python -m uvicorn monitoring.api.main:app --port 9100`  
+- Orchestrator → `uvicorn app.main:app --port 8000`  
 - Frontend → `npm start`
 
 ---
