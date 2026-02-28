@@ -1,15 +1,24 @@
 import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from prometheus_fastapi_instrumentator import Instrumentator
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
+from starlette.middleware.gzip import GZipMiddleware
+from ddtrace import patch
+from ddtrace.contrib.asgi import TraceMiddleware
 
 from .router_infer import router as infer_router
 
 
 def create_app() -> FastAPI:
+    """Cria e configura a aplicação FastAPI com middlewares e roteadores."""
+    # Habilita instrumentação automática de libs comuns
+    patch(fastapi=True, httpx=True, redis=True, sqlalchemy=True)
     app = FastAPI(title="Blake AI Orchestrator", version="4.0")
+
+    # Datadog APM para todas as requisições
+    dd_service = os.getenv("DD_SERVICE", "orchestrator")
+    app.add_middleware(TraceMiddleware, service=dd_service, distributed_tracing=True)
 
     # CORS: restrict to configured origins
     cors_env = os.getenv("CORS_ALLOW_ORIGINS")
@@ -22,6 +31,8 @@ def create_app() -> FastAPI:
         allow_methods=["GET", "POST", "OPTIONS"],
         allow_headers=["Content-Type", "Authorization"],
     )
+    # Compressão simples de respostas
+    app.add_middleware(GZipMiddleware, minimum_size=512)
 
     # Trusted hosts and optional HTTPS redirect
     allowed_hosts_env = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1")
@@ -33,6 +44,7 @@ def create_app() -> FastAPI:
     # Basic security headers
     @app.middleware("http")
     async def add_security_headers(request: Request, call_next):
+        """Aplica cabeçalhos de segurança básicos em todas as respostas."""
         response = await call_next(request)
         response.headers.setdefault("X-Content-Type-Options", "nosniff")
         response.headers.setdefault("X-Frame-Options", "DENY")
@@ -45,9 +57,9 @@ def create_app() -> FastAPI:
 
     @app.get("/health")
     def health():
+        """Endpoint de verificação de saúde do serviço."""
         return {"status": "ok"}
 
-    Instrumentator().instrument(app).expose(app)
     return app
 
 

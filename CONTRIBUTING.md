@@ -25,15 +25,12 @@ Fork the repository and create a descriptive branch:
 
 Set up your local environment:
 
-- Backend → `python -m pip install -r backend/requirements.txt`  
-- Monitoring → `python -m pip install -r monitoring/requirements.txt`  
-- Frontend → `npm install` (Node 18+)  
-- Database → see `database/README.md` for configuration and migrations  
+- Orchestrator → `cd orchestrator && python -m pip install -r requirements.txt`  
+- Frontend → `cd frontend && npm install` (Node 18+)
 
 Run locally:
 
-- Backend → `python -m uvicorn backend.orchestrator.main:app --port 8000`  
-- Monitoring → `python -m uvicorn monitoring.api.main:app --port 9100`  
+- Orchestrator → `uvicorn app.main:app --port 8000`  
 - Frontend → `npm start`
 
 ---
@@ -55,7 +52,7 @@ Allowed prefixes → `feat`, `fix`, `hotfix`, `docs`, `chore`, `refactor`, `test
 Before submitting:
 
 - Describe the issue and the logic behind your change.  
-- Include testing steps (`/health`, `/metrics`, `/docs`, etc).  
+- Include testing steps (`/health`, `/docs`, etc).  
 - Update READMEs or CHANGELOGs when applicable.  
 - Keep PRs focused, modular, and testable.  
 
@@ -126,15 +123,12 @@ Faça um fork e crie um branch descritivo:
 
 Configure o ambiente local:
 
-- Backend → `python -m pip install -r backend/requirements.txt`  
-- Monitoring → `python -m pip install -r monitoring/requirements.txt`  
-- Frontend → `npm install` (Node 18+)  
-- Banco de Dados → veja `database/README.md` para configuração e migrações  
+- Orchestrator → `cd orchestrator && python -m pip install -r requirements.txt`  
+- Frontend → `cd frontend && npm install` (Node 18+)  
 
 Rodando localmente:
 
-- Backend → `python -m uvicorn backend.orchestrator.main:app --port 8000`  
-- Monitoring → `python -m uvicorn monitoring.api.main:app --port 9100`  
+- Orchestrator → `uvicorn app.main:app --port 8000`  
 - Frontend → `npm start`
 
 ---
@@ -156,7 +150,7 @@ Prefixos válidos → `feat`, `fix`, `hotfix`, `docs`, `chore`, `refactor`, `tes
 Antes de abrir um PR:
 
 - Descreva o problema e a solução adotada.  
-- Inclua passos de validação (`/health`, `/docs`, `/metrics`, etc).  
+- Inclua passos de validação (`/health`, `/docs`, etc).  
 - Atualize README e CHANGELOG se necessário.  
 - Mantenha o PR pequeno, coeso e com commits testados.  
 

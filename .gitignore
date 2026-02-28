@@ -12,8 +12,6 @@ venv/
 env/
 .coverage
 
-# Monitoring logs
-monitoring/logs/
 logs/
 
 # IDE/OS

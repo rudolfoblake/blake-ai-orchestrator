@@ -4,9 +4,7 @@
 
 ## 🔗 See Also
 - [Project overview](../README.md)
-- [Backend docs](../backend/README.md)
-- [Monitoring docs](../monitoring/README.md)
-- [Database docs](../database/README.md)
+- [Orchestrator docs](../orchestrator/README.md)
 
 ---
 
@@ -52,9 +50,7 @@
 
 ### 🔗 Veja Também
 - [Visão geral do projeto](../README.md)
-- [Docs do Backend](../backend/README.md)
-- [Docs de Monitoring](../monitoring/README.md)
-- [Docs de Database](../database/README.md)
+- [Docs do Orchestrator](../orchestrator/README.md)
 
 ---
 
