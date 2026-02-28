@@ -1,17 +1,24 @@
 import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from prometheus_fastapi_instrumentator import Instrumentator
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
 from starlette.middleware.gzip import GZipMiddleware
+from ddtrace import patch
+from ddtrace.contrib.asgi import TraceMiddleware
 
 from .router_infer import router as infer_router
 
 
 def create_app() -> FastAPI:
     """Cria e configura a aplicação FastAPI com middlewares e roteadores."""
+    # Habilita instrumentação automática de libs comuns
+    patch(fastapi=True, httpx=True, redis=True, sqlalchemy=True)
     app = FastAPI(title="Blake AI Orchestrator", version="4.0")
+
+    # Datadog APM para todas as requisições
+    dd_service = os.getenv("DD_SERVICE", "orchestrator")
+    app.add_middleware(TraceMiddleware, service=dd_service, distributed_tracing=True)
 
     # CORS: restrict to configured origins
     cors_env = os.getenv("CORS_ALLOW_ORIGINS")
@@ -53,7 +60,6 @@ def create_app() -> FastAPI:
         """Endpoint de verificação de saúde do serviço."""
         return {"status": "ok"}
 
-    Instrumentator().instrument(app).expose(app)
     return app
 
 

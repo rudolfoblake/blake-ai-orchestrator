@@ -1,28 +1,30 @@
 version: '3.9'
 services:
-  backend:
+  orchestrator:
     build:
-      context: .
-      dockerfile: services/orchestrator/Dockerfile
+      context: ./orchestrator
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     env_file: .env
     depends_on:
       - db
       - redis
-      - monitoring-api
-    command: uvicorn orchestrator.main:app --host 0.0.0.0 --port 8000
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
     environment:
-      - MONITORING_URL=http://monitoring-api:9100
+      - DD_SERVICE=orchestrator
+      - DD_ENV=${DD_ENV:-dev}
+      - DD_AGENT_HOST=${DD_AGENT_HOST:-host.docker.internal}
+      - DD_TRACE_ENABLED=true
 
   frontend:
     build:
-      context: .
-      dockerfile: services/frontend/Dockerfile
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     depends_on:
-      - backend
+      - orchestrator
     environment:
       - REACT_APP_API_URL=http://localhost:8000
 
@@ -40,24 +42,17 @@ services:
     ports:
       - "6379:6379"
 
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./services/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
-
-  monitoring-api:
-    build:
-      context: .
-      dockerfile: services/monitoring/Dockerfile
-    ports:
-      - "9100:9100"
-
-  grafana:
-    image: grafana/grafana
-    ports:
-      - "4000:3000"
+  # Optional: Datadog Agent (comment out if using external agent)
+  # datadog:
+  #   image: gcr.io/datadoghq/agent:latest
+  #   environment:
+  #     - DD_API_KEY=${DD_API_KEY}
+  #     - DD_SITE=${DD_SITE:-datadoghq.com}
+  #     - DD_APM_ENABLED=true
+  #   ports:
+  #     - "8126:8126"
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock:ro
 
 volumes:
   db_data:

@@ -10,7 +10,6 @@ from pydantic import BaseModel, Field
 # v4.0 pipeline delega para services.inferencer
 from .services.inferencer import infer_final_answer
 from database.db import InferenceLog, get_session
-from .utils.monitoring import send_event as send_monitor_event
 from .utils.crypto import encrypt_if_configured
 from .utils.cache import cache_get, cache_set
 from .utils.logging import log_info
@@ -81,19 +80,6 @@ async def infer(body: PromptRequest) -> InferenceResponse:
             session.commit()
     except Exception:
         # Manter a API saudável mesmo com falhas no DB
-        pass
-
-    # Envio de evento para Monitoring API (best-effort, não bloqueante)
-    try:
-        payload = {
-            "prompt": prompt_for_log,
-            "final_answer": final_for_log,
-            "confidence": result.get("confidence"),
-            "sources": sources_for_log,
-            "duration_ms": round((time.time() - start) * 1000, 2),
-        }
-        asyncio.create_task(asyncio.to_thread(send_monitor_event, payload))
-    except Exception:
         pass
 
     # Cache do resultado (TTL configurável, padrão 60s)

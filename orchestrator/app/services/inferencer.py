@@ -11,7 +11,7 @@ from .claude_client import call_claude
 from .deepseek_client import call_deepseek
 from .gemini_client import call_gemini
 from ..utils.circuit import get_breaker
-from ..utils.monitoring import send_provider_event
+from ddtrace import tracer
 
 
 async def infer_final_answer(prompt_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -49,14 +49,18 @@ async def infer_final_answer(prompt_data: Dict[str, Any]) -> Dict[str, Any]:
         else:
             try:
                 async with semaphores[name]:
-                    if name == "openai":
-                        text = await call_openai(prompt)
-                    elif name == "claude":
-                        text = await call_claude(prompt)
-                    elif name == "deepseek":
-                        text = await call_deepseek(prompt)
-                    elif name == "gemini":
-                        text = await call_gemini(prompt)
+                    with tracer.trace("provider.call", service="orchestrator", resource=name) as span:
+                        span.set_tag("provider.name", name)
+                        span.set_tag("prompt.length", len(prompt))
+                        if name == "openai":
+                            text = await call_openai(prompt)
+                        elif name == "claude":
+                            text = await call_claude(prompt)
+                        elif name == "deepseek":
+                            text = await call_deepseek(prompt)
+                        elif name == "gemini":
+                            text = await call_gemini(prompt)
+                        span.set_tag("response.length", len(text))
                 breaker.success()
             except Exception as e:
                 status = "error"
@@ -64,15 +68,12 @@ async def infer_final_answer(prompt_data: Dict[str, Any]) -> Dict[str, Any]:
                 breaker.fail()
         duration_ms = round((time.time() - start) * 1000.0, 2)
         try:
-            await asyncio.to_thread(
-                send_provider_event,
-                {
-                    "provider": name,
-                    "status": status,
-                    "duration_ms": duration_ms,
-                    "error": error_name,
-                },
-            )
+            span = tracer.current_span()
+            if span:
+                span.set_tag(f"provider.{name}.status", status)
+                span.set_tag(f"provider.{name}.duration_ms", duration_ms)
+                if error_name:
+                    span.set_tag(f"provider.{name}.error", error_name)
         except Exception:
             pass
         return name, text if status == "ok" else ""
@@ -87,10 +88,10 @@ async def infer_final_answer(prompt_data: Dict[str, Any]) -> Dict[str, Any]:
     if "gemini" in enabled:
         coros.append(_run_provider("gemini"))
 
-    if not tasks:
+    if not coros:
         return {"final_answer": "", "confidence": 0.0, "sources": {}}
 
-    results = await asyncio.gather(*coros, return_exceptions=False)
+    results = await asyncio.gather(*coros, return_exceptions=True)
     responses: Dict[str, str] = {name: text for (name, text) in results}
 
     analysis = await analyze_responses(responses)

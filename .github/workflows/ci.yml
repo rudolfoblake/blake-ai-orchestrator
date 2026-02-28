@@ -23,10 +23,10 @@ jobs:
       - name: Install backend requirements
         run: |
           python -m pip install --upgrade pip
-          pip install -r services/orchestrator/requirements.txt
+          pip install -r orchestrator/requirements.txt
       - name: Syntax check backend
         run: |
-          python -m compileall -q services/orchestrator
+          python -m compileall -q orchestrator
 
   frontend-build:
     runs-on: ubuntu-latest
@@ -39,10 +39,10 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: services/frontend/package-lock.json
+          cache-dependency-path: frontend/package-lock.json
       - name: Install frontend deps
-        working-directory: services/frontend
+        working-directory: frontend
         run: npm ci || npm install
       - name: Build frontend (if present)
-        working-directory: services/frontend
+        working-directory: frontend
         run: npm run build --if-present
