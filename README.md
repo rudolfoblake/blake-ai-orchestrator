@@ -15,10 +15,8 @@ Each module is **fully decoupled**, evolving on its own.
 
 ## ⚙️ Modules
 ```
-backend/     → FastAPI orchestrator (POST /infer)
-frontend/    → Lightweight React client
-database/    → Shared SQLAlchemy layer
-monitoring/  → Metrics & Prometheus collector
+orchestrator/ → FastAPI orchestrator (POST /infer) + DB module
+frontend/     → Lightweight React client
 ```
 
 ---
@@ -32,18 +30,15 @@ docker compose up --build
 ```
 
 **Services**
-- Backend → [http://localhost:8000](http://localhost:8000)  
-- Frontend → [http://localhost:3000](http://localhost:3000)  
-- Monitoring → [http://localhost:9100](http://localhost:9100)  
-- Prometheus → [http://localhost:9090](http://localhost:9090)  
-- Grafana → [http://localhost:4000](http://localhost:4000)
+- Orchestrator → [http://localhost:8000](http://localhost:8000)  
+- Frontend → [http://localhost:3000](http://localhost:3000)
 
 ### Local Dev
 ```bash
-pip install -r backend/requirements.txt
-uvicorn backend.orchestrator.main:app --reload
+cd orchestrator && pip install -r requirements.txt
+uvicorn app.main:app --reload
 
-cd frontend && npm install && npm start
+cd ../frontend && npm install && npm start
 ```
 
 ---
@@ -56,11 +51,8 @@ cd frontend && npm install && npm start
 ---
 
 ## 🧩 Documentation
-- [backend/README.md](backend/README.md)  
-- [frontend/README.md](frontend/README.md)  
-- [monitoring/README.md](monitoring/README.md)  
-- [database/README.md](database/README.md)  
-- [backend/CHANGELOG.md](backend/CHANGELOG.md), [frontend/CHANGELOG.md](frontend/CHANGELOG.md)
+- [orchestrator/README.md](orchestrator/README.md)  
+- [frontend/README.md](frontend/README.md)
 
 ---
 

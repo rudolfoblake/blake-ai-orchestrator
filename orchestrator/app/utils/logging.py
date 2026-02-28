@@ -1,3 +1,4 @@
+"""Camada fina sobre Loguru para padronizar logs da aplicação."""
 from loguru import logger
 import os
 
